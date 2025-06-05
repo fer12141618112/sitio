@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuidado del Medio Ambiente</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4fff0;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 130px;
+      background-color: #ffffff;
+      z-index: 1000;
+      overflow: hidden;
+    }
+
+    header img {
+      width: 100vw;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    main {
+      display: flex;
+      margin-top: 130px; /* altura del banner */
+      height: calc(100vh - 130px);
+    }
+
+    nav {
+      width: 20%;
+      background-color: #4CAF50;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    nav button {
+      width: 90%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background-color: #81C784;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    nav button:hover {
+      background-color: #66BB6A;
+    }
+
+    section {
+      width: 60%;
+      background-color: #E8F5E9;
+      padding: 20px;
+      overflow-y: auto;
+      height: 100%;
+    }
+
+    #subtitulo {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    #contenido p {
+      font-size: 16px;
+      text-align: justify;
+      margin-top: 10px;
+    }
+
+    #contenido video,
+    #contenido audio,
+    #contenido img {
+      width: 100%;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    aside {
+      width: 20%;
+      background-color: #C8E6C9;
+      padding: 20px;
+    }
+
+    aside img {
+      width: 100%;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="banner.jpg" alt="Cuidado del Medio Ambiente">
+  </header>
+
+  <main>
+    <nav>
+      <button onclick="cargarContenido('menu')">Menú Principal</button>
+      <button onclick="cargarContenido('reforestacion')">Reforestación</button>
+      <button onclick="cargarContenido('limpieza_institucional')">Limpieza Institucional</button>
+      <button onclick="cargarContenido('limpieza_externa')">Limpieza Externa</button>
+      <button onclick="cargarContenido('flora_fauna')">Flora y Fauna</button>
+    </nav>
+
+    <section>
+      <div id="subtitulo">
+        <h2>Bienvenido</h2>
+      </div>
+      <div id="contenido">
+        <p>Haz clic en los botones para conocer más sobre el cuidado y preservación del medio ambiente.</p>
+      </div>
+    </section>
+
+    <aside>
+      <img src="imagen1.jpg" alt="Decoración">
+    </aside>
+  </main>
+
+  <script>
+    function cargarContenido(seccion) {
+      const subtitulo = document.querySelector("#subtitulo h2");
+      const contenido = document.getElementById("contenido");
+      contenido.style.opacity = 0;
+
+      setTimeout(() => {
+        if (seccion === "menu") {
+          subtitulo.textContent = "Menú Principal";
+          contenido.innerHTML = `
+            <p>Bienvenido a la campaña de concientización sobre el cuidado del medio ambiente. Este proyecto fue realizado por un equipo de estudiantes con el objetivo de crear conciencia sobre la importancia de preservar nuestro entorno natural.</p>
+            <video controls>
+              <source src="video1.mp4" type="video/mp4">
+              Tu navegador no soporta la reproducción de video.
+            </video>
+          `;
+        } else if (seccion === "reforestacion") {
+          subtitulo.textContent = "Reforestación";
+          contenido.innerHTML = `
+            <p>La reforestación es el proceso de plantar árboles en áreas que han perdido su vegetación forestal. Ayuda a combatir el cambio climático, protege el suelo y promueve la biodiversidad.</p>
+            <audio controls>
+              <source src="audio1.mp3" type="audio/mp3">
+              Tu navegador no soporta la reproducción de audio.
+            </audio>
+          `;
+        } else if (seccion === "limpieza_institucional") {
+          subtitulo.textContent = "Limpieza Institucional";
+          contenido.innerHTML = `
+            <p>La limpieza institucional contribuye a mantener ambientes escolares limpios y saludables, fomentando la participación y responsabilidad de todos los estudiantes.</p>
+            <img src="imagen2.jpg" alt="Limpieza institucional">
+          `;
+        } else if (seccion === "limpieza_externa") {
+          subtitulo.textContent = "Limpieza Externa";
+          contenido.innerHTML = `
+            <p>La limpieza de áreas externas, como banquetas o parques, fortalece el compromiso social de los jóvenes con la comunidad y el entorno urbano.</p>
+            <img src="imagen3.jpg" alt="Limpieza comunitaria">
+          `;
+        } else if (seccion === "flora_fauna") {
+          subtitulo.textContent = "Flora y Fauna";
+          contenido.innerHTML = `
+            <p>La preservación de la flora y fauna local es esencial para conservar los ecosistemas naturales. Cada especie tiene un rol en el equilibrio ambiental.</p>
+            <img src="gif1.gif" alt="Vida silvestre">
+          `;
+        }
+
+        contenido.style.opacity = 1;
+      }, 300);
+    }
+  </script>
+
+</body>
+</html>
